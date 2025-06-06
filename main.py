@@ -37,7 +37,7 @@ def main():
         elif choice == "4":
             break
         else:
-            print("Invalid input")
+            print("Invalid input.")
     print("\nGoodbye!")
 if __name__ == "__main__":
     main()
