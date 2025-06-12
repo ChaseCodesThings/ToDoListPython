@@ -1,43 +1,38 @@
 def main():
     tasks = []
     def addTask():
-        task = input("Enter a task: ")
-        tasks.append(task)
-        print(f"Task '{task}' added to the list.")
-    def listTasks(tasks):
-        if not tasks:
-            print("No tasks added.")
-        else:
-            print("Current tasks:")
-            for index, tasks in enumerate(tasks):
-                print(f"Task #{index + 1}. {tasks}")
+        taskToAdd = input(f"Enter a task to add: ")
+        tasks.append(taskToAdd)
     def removeTask():
-        listTasks(tasks)
-        try:
-            taskToRemove = int(input("Enter the task number to remove: "))
-            tasks.pop(taskToRemove - 1)
-            print(f"Task '#{taskToRemove}' removed from the list.")
-        except:
-            print("Invalid input.")
-    while True:
-        print("\n")
-        print("Select one of the following options:")
-        print("1. Add task")
-        print("2. Remove task")
-        print("3. List tasks")
-        print("4. Exit")
-
-        choice = input("Enter your choice: ")
+        taskToRemove = int(input("Enter a task number to remove: "))
+        print(f"Task #{taskToRemove} '{tasks[taskToRemove - 1]}' removed")
+        tasks.pop(taskToRemove - 1)
+    def listTasks():
+        print("Current tasks:")
+        for i in range (len(tasks)):
+            print(f"{i + 1}. " + tasks[i])
+        print("")
+    def deleteAllTasks():
+        for i in range(len(tasks)):
+            tasks.pop(i)
+    print("Welcome to your To-Do List!")
+    #choice = input("1. Add a task\n2. Remove a task\n3. List all tasks\n4. Delete all tasks\n5. Exit\nEnter your choice: ")
+    choice = 0
+    while choice != "5":
+        choice = input(
+            "1. Add a task\n2. Remove a task\n3. List all tasks\n4. Delete all tasks\n5. Exit\nEnter your choice: ")
         if choice == "1":
             addTask()
         elif choice == "2":
             removeTask()
         elif choice == "3":
-            listTasks(tasks)
+            listTasks()
         elif choice == "4":
+            deleteAllTasks()
+        elif choice == "5":
             break
         else:
-            print("Invalid input.")
-    print("\nGoodbye!")
+            print("Invalid choice.")
+    print("Thanks for using our To-Do List!\nHave a productive day!")
 if __name__ == "__main__":
     main()
