@@ -3,8 +3,15 @@ def main():
     tasks = []
     print("Welcome to your To-Do List!")
     choice = 0
+    menu = """
+    1. Add a task
+    2. Remove a task
+    3. List tasks
+    4. Delete all tasks
+    5. Exit
+    """
     while choice != "5":
-        choice = input("1. Add a task\n2. Remove a task\n3. List all tasks\n4. Delete all tasks\n5. Exit\nEnter your choice: ")
+        choice = input(menu + "Enter your choice: ")
         if choice == "1":
             addTask(tasks)
         elif choice == "2":
